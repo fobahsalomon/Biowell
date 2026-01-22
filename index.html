@@ -1,0 +1,747 @@
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Biowell – Institut de Recherche en Science Alimentaire</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+        --teal: #2dd4bf;
+        --green: #10b981;
+        --blue: #3b82f6;
+        --orange: #f97316;
+        --light-bg: #f0fdfa;
+        --text-dark: #111827;
+        --text-gray: #6b7280;
+        --white: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --transition: all 0.3s ease;
+        }
+
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+
+        body {
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(to bottom right, var(--light-bg), #ecfdf5);
+        color: var(--text-dark);
+        line-height: 1.6;
+        }
+
+        a {
+        text-decoration: none;
+        color: inherit;
+        }
+
+        .container {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        }
+
+        /* Header */
+        header {
+        background-color: var(--white);
+        box-shadow: var(--shadow);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        }
+
+        .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        }
+
+        .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        }
+
+        .logo-img {
+        background: none;
+        }
+
+        .logo-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 50%;
+}
+
+        .logo-icon {
+        width: 6rem;
+        height: 6rem;
+        background: linear-gradient(to right, var(--teal), var(--green));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-weight: bold;
+        font-size: 1.25rem;
+        }
+
+        .logo-text h1 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        }
+
+        .logo-text p {
+        font-size: 0.875rem;
+        color: var(--text-gray);
+        }
+
+        .nav-links {
+        display: none;
+        }
+
+        @media (min-width: 768px) {
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            color: var(--text-gray);
+        }
+
+        .nav-links a:hover {
+            color: var(--teal);
+        }
+        }
+
+        /* Hero Section */
+        .hero h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        }
+
+        .hero h2 span {
+        background: linear-gradient(to right, var(--teal), var(--green));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        }
+
+        .hero p {
+        font-size: 1.25rem;
+        color: var(--text-gray);
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        color: #e5e7eb;
+        }
+
+        .hero {
+        position: relative;
+        padding: 7rem 0;
+        text-align: center;
+        background-image: url("images/banner-biowell.jpg");
+        background-size: cover;
+        background-position: center;
+        color: var(--white);
+        }
+
+        .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to right,
+            rgba(15, 118, 110, 0.75),
+            rgba(16, 185, 129, 0.75)
+        );
+        }
+
+        .hero .container {
+        position: relative;
+        z-index: 1;
+        }
+
+
+        .tags {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-top: 3rem;
+        }
+
+        .tag {
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px;
+        font-weight: 600;
+        }
+
+        .tag:nth-child(1) { background: #ccfbf1; color: #0f766e; }
+        .tag:nth-child(2) { background: #dcfce7; color: #166534; }
+        .tag:nth-child(3) { background: #dbeafe; color: #1d4ed8; }
+        .tag:nth-child(4) { background: #ffedd5; color: #c2410c; }
+
+        /* Services */
+        .section {
+        padding: 5rem 0;
+        }
+
+        .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+        font-size: 2.25rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        }
+
+        .section-header p {
+        font-size: 1.125rem;
+        color: var(--text-gray);
+        max-width: 600px;
+        margin: 0 auto;
+        }
+
+        .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        }
+
+        .service-card {
+        background: linear-gradient(to bottom right, var(--white), #f9fafb);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        border: 1px solid #e5e7eb;
+        }
+
+        .service-card:hover {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+        width: 3rem;
+        height: 3rem;
+        background: linear-gradient(to right, var(--teal), var(--green));
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        }
+
+        .service-icon div {
+        width: 1.5rem;
+        height: 1.5rem;
+        background: var(--white);
+        border-radius: 50%;
+        }
+
+        .service-card h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+        color: var(--text-gray);
+        }
+
+        /* About */
+        .about-section {
+        background: linear-gradient(to right, #f0f9ff, #ecfeff);
+        }
+
+        .about-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+        .about-content {
+            grid-template-columns: 1fr 1fr;
+        }
+        }
+
+        .about-text h2 {
+        font-size: 2.25rem;
+        margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+        margin-bottom: 1.5rem;
+        font-size: 1.125rem;
+        }
+
+        .values {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-top: 2rem;
+        }
+
+        .value-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        }
+
+        .value-dot {
+        width: 0.5rem;
+        height: 0.5rem;
+        background: linear-gradient(to right, var(--teal), var(--green));
+        border-radius: 50%;
+        }
+
+        .about-stats {
+        background: var(--white);
+        border-radius: 1rem;
+        padding: 2rem;
+        box-shadow: var(--shadow);
+        }
+
+        .stat-number {
+        width: 6rem;
+        height: 6rem;
+        background: linear-gradient(to right, var(--orange), #ea580c);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0 auto 1.5rem;
+        }
+
+        .stat-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        }
+
+        .stat-desc {
+        color: var(--text-gray);
+        margin-bottom: 2rem;
+        }
+
+        .checklist {
+        border-top: 1px solid #e5e7eb;
+        padding-top: 1.5rem;
+        }
+
+        .check-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        }
+
+        .check-item:last-child {
+        margin-bottom: 0;
+        }
+
+        .check-mark {
+        color: var(--teal);
+        font-weight: 700;
+        }
+
+        /* Contact */
+        .contact-section {
+        background: var(--white);
+        }
+
+        .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        }
+
+        @media (min-width: 1024px) {
+        .contact-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+        }
+
+        .faq h3,
+        .contact-info h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        }
+
+        .faq-item {
+        border-left: 4px solid var(--teal);
+        padding-left: 1rem;
+        margin-bottom: 1.5rem;
+        }
+
+        .faq-item:last-child {
+        margin-bottom: 0;
+        }
+
+        .faq-item h4 {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        }
+
+        .faq-item p {
+        color: var(--text-gray);
+        }
+
+        .contact-card {
+        background: linear-gradient(to bottom right, #f0fdfa, #ecfdf5);
+        border-radius: 1rem;
+        padding: 2rem;
+        }
+
+        .contact-item {
+        display: flex;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+        color: var(--teal);
+        margin-top: 0.25rem;
+        }
+
+        .contact-label {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+        }
+
+        .contact-value {
+        color: var(--text-gray);
+        }
+
+        .social-card {
+        background: linear-gradient(to bottom right, #eff6ff, #fff7ed);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        margin-top: 2rem;
+        }
+
+        .social-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        }
+
+        .social-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--white);
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        transition: var(--transition);
+        }
+
+        .social-link:hover {
+        background: #f3f4f6;
+        }
+
+        /* Footer */
+        footer {
+        background: var(--text-dark);
+        color: var(--white);
+        padding: 3rem 0;
+        text-align: center;
+        }
+
+        .footer-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+        }
+
+        .footer-logo-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        background: linear-gradient(to right, var(--teal), var(--green));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-weight: bold;
+        }
+
+        .footer-slogan {
+        color: #9ca3af;
+        margin-bottom: 0.5rem;
+        }
+
+        .footer-copyright {
+        color: #6b7280;
+        font-size: 0.875rem;
+        }
+
+        /* LOGO FIX (logo IA mal cadré) */
+        .logo-img {
+        overflow: hidden;
+        background: white;
+        }
+
+        .logo-img img {
+        width: 160%;
+        height: 160%;
+        object-fit: cover;
+        transform: scale(0.75);
+        border-radius: 50%;
+        }
+
+        /* Ajustements selon l'emplacement */
+        .logo-header img {
+        transform: scale(0.75);
+        }
+
+        .logo-footer img {
+        transform: scale(0.75);
+        }
+
+    </style>
+    </head>
+    <body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+        <div class="header-content">
+        <div class="logo">
+        <div class="logo-icon logo-img logo-header">
+        <img src="images/logo.jpeg" alt="Logo Biowell">
+        </div>
+
+
+            <div class="logo-text">
+                <h1>Biowell</h1>
+                <p>Institut de Recherche en Science Alimentaire</p>
+            </div>
+            </div>
+            <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#about">À propos</a>
+            <a href="#contact">Contact</a>
+            </div>
+        </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+        <h2>
+            Nourrir l'invisible,<br>
+            <span>changer le visible.</span>
+        </h2>
+        <p>Pionniers dans la recherche innovante en science alimentaire en Côte d'Ivoire grâce à la collaboration virtuelle et l'innovation étudiante.</p>
+
+        <div class="tags">
+            <div class="tag">🔬 Recherche</div>
+            <div class="tag">🥗 Nutrition</div>
+            <div class="tag">🧪 Innovation</div>
+            <div class="tag">🌱 Durabilité</div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section">
+        <div class="container">
+        <div class="section-header">
+            <h2>Nos Services</h2>
+            <p>Des solutions complètes en science alimentaire adaptées aux besoins actuels de l'industrie et des consommateurs.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+            <div class="service-icon"><div></div></div>
+            <h3>Contrôle microbiologique de la qualité alimentaire</h3>
+            <p>Analyse avancée pour garantir la sécurité alimentaire et la conformité aux normes internationales.</p>
+            </div>
+            <div class="service-card">
+            <div class="service-icon"><div></div></div>
+            <h3>Régimes alimentaires personnalisés</h3>
+            <p>Programmes nutritionnels sur mesure selon vos objectifs de santé et préférences alimentaires.</p>
+            </div>
+            <div class="service-card">
+            <div class="service-icon"><div></div></div>
+            <h3>Développement et formulation de produits alimentaires</h3>
+            <p>Création innovante de nouveaux produits avec des profils nutritionnels optimisés.</p>
+            </div>
+            <div class="service-card">
+            <div class="service-icon"><div></div></div>
+            <h3>Formation en techniques de science alimentaire</h3>
+            <p>Ateliers professionnels sur les méthodologies modernes en laboratoire.</p>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section about-section">
+        <div class="container">
+        <div class="about-content">
+            <div class="about-text">
+            <h2>À propos de Biowell</h2>
+            <p>Biowell est un institut virtuel de recherche en science alimentaire fondé par cinq étudiants passionnés, dédié à révolutionner la recherche alimentaire en Côte d'Ivoire.</p>
+            <p>Notre mission est de combler l’écart entre la science alimentaire traditionnelle et les avancées technologiques modernes, en créant des solutions durables pour la sécurité alimentaire, la nutrition et le développement de produits.</p>
+            
+            <div class="values">
+                <div class="value-item"><div class="value-dot"></div> Bienveillance</div>
+                <div class="value-item"><div class="value-dot"></div> Équilibre</div>
+                <div class="value-item"><div class="value-dot"></div> Innovation</div>
+                <div class="value-item"><div class="value-dot"></div> Transparence</div>
+                <div class="value-item"><div class="value-dot"></div> Confiance</div>
+            </div>
+            </div>
+            <div class="about-stats">
+            <div class="stat-number">5</div>
+            <h3 class="stat-title">Étudiants Fondateurs</h3>
+            <p class="stat-desc">Porteurs d’innovation en science alimentaire ivoirienne</p>
+            
+            <div class="checklist">
+                <div class="check-item">
+                <span>Institut Virtuel</span>
+                <span class="check-mark">✓</span>
+                </div>
+                <div class="check-item">
+                <span>Focus Côte d'Ivoire</span>
+                <span class="check-mark">✓</span>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+        <div class="section-header">
+            <h2>Contactez-nous</h2>
+            <p>Des questions ? Nous sommes là pour vous accompagner.</p>
+        </div>
+        <div class="contact-grid">
+            <div class="faq">
+            <h3>Questions Fréquentes</h3>
+            <div class="faq-item">
+                <h4>Comment demander une consultation ?</h4>
+                <p>Contactez-nous par email ou WhatsApp pour planifier votre consultation initiale.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Vous servez des clients hors de Côte d'Ivoire ?</h4>
+                <p>Nous nous concentrons actuellement sur le marché ivoirien, mais restons ouverts aux collaborations internationales.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Qu’est-ce qui distingue Biowell ?</h4>
+                <p>Notre modèle virtuel et notre approche étudiante apportent fraîcheur et agilité à la recherche alimentaire.</p>
+            </div>
+            </div>
+            <div>
+            <div class="contact-card">
+                <h3>Coordonnées</h3>
+                <div class="contact-item">
+                <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <div>
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value">biowellpro2026@gmail.com</div>
+                </div>
+                </div>
+                <div class="contact-item">
+                <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <div>
+                    <div class="contact-label">WhatsApp</div>
+                    <div class="contact-value">Appels et messages disponibles</div>
+                </div>
+                </div>
+                <div class="contact-item">
+                <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <div>
+                    <div class="contact-label">Localisation</div>
+                    <div class="contact-value">Cocody, 2 Plateaux – Vallon, Côte d'Ivoire</div>
+                </div>
+                </div>
+                <div class="contact-item">
+                <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <div>
+                    <div class="contact-label">Horaires</div>
+                    <div class="contact-value">Lundi–Samedi, 8h–21h</div>
+                </div>
+                </div>
+            </div>
+            <div class="social-card">
+                <h3>Suivez-nous</h3>
+                <div class="social-links">
+                <a href="#" class="social-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                    Instagram
+                </a>
+                <a href="#" class="social-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    TikTok
+                </a>
+                <a href="#" class="social-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                    </svg>
+                    WhatsApp
+                </a>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+        <div class="footer-logo">
+        <div class="footer-logo-icon logo-img logo-footer">
+        <img src="images/logo.jpeg" alt="Logo Biowell">
+        </div>
+
+
+            <h3>Biowell</h3>
+        </div>
+        <p class="footer-slogan">Nourrir l'invisible, changer le visible.</p>
+        <p class="footer-copyright">© 2026 Biowell Institut de Recherche en Science Alimentaire. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    </body>
+    </html>
+
