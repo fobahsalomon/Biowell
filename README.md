@@ -7,3 +7,5 @@ The project was originally created as a preliminary visual mockup for an academi
 It was never intended for production use and is kept here solely for educational and reference purposes.
 
 No further updates will be made.
+
+The site is still available anyway 
